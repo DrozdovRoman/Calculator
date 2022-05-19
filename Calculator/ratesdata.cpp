@@ -1,16 +1,16 @@
 #include "ratesdata.h"
 
 ratesdata::ratesdata() {
-    NetworkManager = new QNetworkAccessManager(this);
-        connect(NetworkManager,& QNetworkAccessManager::finished,this,& ratesdata::slot_NetworkManager);
+    NetworkManager = new QNetworkAccessManager(this); // Создаем объект класса QNetworkAcessManager
+        connect(NetworkManager,& QNetworkAccessManager::finished,this,& ratesdata::slot_NetworkManager); // Соединяем сигнал окончания обработки запроса и слота обработки данных
 
     request.setUrl(QUrl("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,USDT,BNB,USDC,XRP,ADA,SOL,NEXO,NEAR,DOT,TRX&tsyms=RUB,USD,EUR&api_key=2be0fbd8ffeab0266c0030cc3bfbfe306ad3b533ba06df038bc0cce58eba8165"));
-
+    // Преобразовываем запрос к API сервису к формату URL
     timer = new QTimer();
     A = QVector<double>(3);
     RateData = QVector<QVector<double>>(12);
-    timer -> setInterval(10000);
-        connect(timer, &QTimer::timeout, this, & ratesdata::SendReq);
+    timer -> setInterval(10000); // Задаем интервал таймера
+        connect(timer, &QTimer::timeout, this, & ratesdata::SendReq); // Соединяем сигнал окончания таймера и слот отправки запроса серверу
     timer -> start(1000);
 }
 
@@ -22,10 +22,10 @@ ratesdata::~ratesdata() {
 }
 
 void ratesdata::SendReq() {
-    NetworkManager -> get(request);
+    NetworkManager -> get(request); // Отправляем запрос серверу
 }
 
-void ratesdata::slot_NetworkManager(QNetworkReply *rep) {
+void ratesdata::slot_NetworkManager(QNetworkReply *rep) { // Преобразуем данные полученные от сервера, в двумерный массив
     rep -> waitForReadyRead(100);
     doc = QJsonDocument::fromJson(rep -> readAll(), &err);
     if (err.errorString() == "no error occurred") {
