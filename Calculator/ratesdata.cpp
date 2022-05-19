@@ -90,7 +90,7 @@ void ratesdata::slot_NetworkManager(QNetworkReply *rep) { // Преобразу�
         A.replace(2,temp.value("RUB").toDouble());
         RateData.replace(11,A);
 
-        emit signal(RateData);
+        emit signal(RateData); // Отправляем сигнал
     }
     rep -> deleteLater();
 }
