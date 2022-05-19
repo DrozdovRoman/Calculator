@@ -8,10 +8,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    int id = QFontDatabase::addApplicationFont(":/resourses/fonts/VenrynSans-Medium.ttf");
+    int id = QFontDatabase::addApplicationFont(":/resourses/fonts/VenrynSans-Medium.ttf"); // Подключаем шрифт из файла ресурсов.
 
     inf = new ratesdata;
-    connect(inf, &ratesdata::signal, this,  &MainWindow::slot_changetext);
+    connect(inf, &ratesdata::signal, this,  &MainWindow::slot_changetext); // Соединяем сигнал получения данных от сервера со слотом изменения TextLabel
 }
 
 MainWindow::~MainWindow()
@@ -20,7 +20,7 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::slot_changetext(QVector<QVector<double>> rate)
+void MainWindow::slot_changetext(QVector<QVector<double>> rate) // Слот изменения TextLabel
 {
 
     ui -> BTC_R -> setText(QString::number(rate[0][ui -> SelectCurrency -> currentIndex()],'g',10) + " " + ui -> SelectCurrency -> currentText());
@@ -39,7 +39,7 @@ void MainWindow::slot_changetext(QVector<QVector<double>> rate)
 }
 
 
-void MainWindow::on_pushButton_plus_clicked()
+void MainWindow::on_pushButton_plus_clicked() // Слот нажатия на кнопку "+"
 {
     double temp_1;
     double temp_2;
@@ -60,7 +60,7 @@ void MainWindow::on_pushButton_plus_clicked()
 }
 
 
-void MainWindow::on_pushButton_minus_clicked()
+void MainWindow::on_pushButton_minus_clicked() // Слот нажатия на кнопку "-"
 {
     double temp_1;
     double temp_2;
@@ -82,7 +82,7 @@ void MainWindow::on_pushButton_minus_clicked()
 }
 
 
-void MainWindow::on_pushButton_multiply_clicked()
+void MainWindow::on_pushButton_multiply_clicked() // Слот нажатия на кнопку "*"
 {
     double temp_1;
     double temp_2;
@@ -106,7 +106,7 @@ void MainWindow::on_pushButton_multiply_clicked()
 }
 
 
-void MainWindow::on_pushButton_divide_clicked()
+void MainWindow::on_pushButton_divide_clicked() // Слот нажатия на кнопку "÷"
 {
 
     double temp_1;
@@ -137,7 +137,7 @@ void MainWindow::on_pushButton_divide_clicked()
 }
 
 
-void MainWindow::on_pushButton_plus_2_clicked()
+void MainWindow::on_pushButton_plus_2_clicked() // Слот нажатия на кнопку очистки данных в калькуляторе
 {
     ui -> EnterCoin_1 -> setValue(0);
     ui -> EnterCoin_2 -> setValue(0);
