@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resourses/fonts/VenrynSans-Medium.ttf</file>
+        <file>resourses/fonts/VenrynSans-MediumItalic.ttf</file>
+        <file>resourses/Images/PNG120.png</file>
+    </qresource>
+</RCC>
