@@ -6,7 +6,8 @@ ratesdata::ratesdata() {
         connect(NetworkManager,& QNetworkAccessManager::finished,this,& ratesdata::slot_NetworkManager); 
 
 
-    request.setUrl(QUrl("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,USDT,BNB,USDC,XRP,ADA,SOL,NEXO,NEAR,DOT,TRX&tsyms=RUB,USD,EUR&api_key=2be0fbd8ffeab0266c0030cc3bfbfe306ad3b533ba06df038bc0cce58eba8165"));
+    request.setUrl(QUrl("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,USDT,BNB,USDC,XRP,ADA,SOL,NEXO,NEAR,DOT,TRX&tsyms=
+                        RUB,USD,EUR&api_key=2be0fbd8ffeab0266c0030cc3bfbfe306ad3b533ba06df038bc0cce58eba8165"));
     // Преобразовываем запрос к API сервису к формату URL
     timer = new QTimer();
     A = QVector<double>(3);
