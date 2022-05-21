@@ -54,7 +54,8 @@ void MainWindow::on_pushButton_plus_clicked() // Слот нажатия на к
     else {
         temp_1 = inf -> RateData[ui -> EnterCurrency_1 -> currentIndex()][0];
         temp_2 = inf -> RateData[ui -> EnterCurrency_2 -> currentIndex()][0];
-        result = (temp_1 * ui -> EnterCoin_1 -> value() + temp_2 * ui -> EnterCoin_2 -> value()) / (inf -> RateData [ ui -> comboBox_ResultValue -> currentIndex() - 3][0]);
+        result = (temp_1 * ui -> EnterCoin_1 -> value() + temp_2 * ui -> EnterCoin_2 -> value()) / 
+            (inf -> RateData [ ui -> comboBox_ResultValue -> currentIndex() - 3][0]);
         ui -> CalculationResult -> setText(QString::number(result,'g',10) + ui -> comboBox_ResultValue -> currentText());
     }
 }
@@ -75,7 +76,8 @@ void MainWindow::on_pushButton_minus_clicked() // Слот нажатия на �
     else {
         temp_1 = inf -> RateData[ui -> EnterCurrency_1 -> currentIndex()][0];
         temp_2 = inf -> RateData[ui -> EnterCurrency_2 -> currentIndex()][0];
-        result = (temp_1 * ui -> EnterCoin_1 -> value() - temp_2 * ui -> EnterCoin_2 -> value()) / (inf -> RateData [ ui -> comboBox_ResultValue -> currentIndex() - 3][0]);
+        result = (temp_1 * ui -> EnterCoin_1 -> value() - temp_2 * ui -> EnterCoin_2 -> value()) / 
+            (inf -> RateData [ ui -> comboBox_ResultValue -> currentIndex() - 3][0]);
         ui -> CalculationResult -> setText(QString::number(result,'g',10) + ui -> comboBox_ResultValue -> currentText());
     }
 
@@ -99,7 +101,8 @@ void MainWindow::on_pushButton_multiply_clicked() // Слот нажатия н�
     {
         temp_1 = inf -> RateData[ui -> EnterCurrency_1 -> currentIndex()][0];
         temp_2 = inf -> RateData[ui -> EnterCurrency_2 -> currentIndex()][0];
-        result = (ui -> EnterCoin_1 -> value() * ui -> EnterCoin_2 -> value()) * temp_1 * temp_2 / (inf -> RateData [ ui -> comboBox_ResultValue -> currentIndex() - 3][0]);
+        result = (ui -> EnterCoin_1 -> value() * ui -> EnterCoin_2 -> value()) * temp_1 * temp_2 / 
+            (inf -> RateData [ ui -> comboBox_ResultValue -> currentIndex() - 3][0]);
         ui -> CalculationResult -> setText(QString::number(result,'g',10) + ui -> comboBox_ResultValue -> currentText());
     }
 
@@ -126,7 +129,8 @@ void MainWindow::on_pushButton_divide_clicked() // Слот нажатия на 
         temp_1 = inf -> RateData[ui -> EnterCurrency_1 -> currentIndex()][0];
         temp_2 = inf -> RateData[ui -> EnterCurrency_2 -> currentIndex()][0];
         if (ui -> EnterCoin_2 -> value() != 0) {
-            result = (ui -> EnterCoin_1 -> value() * ui -> EnterCoin_2 -> value()) / temp_1 * temp_2 / (inf -> RateData [ ui -> comboBox_ResultValue -> currentIndex() - 3][0]);
+            result = (ui -> EnterCoin_1 -> value() * ui -> EnterCoin_2 -> value()) / temp_1 * temp_2 / 
+                (inf -> RateData [ ui -> comboBox_ResultValue -> currentIndex() - 3][0]);
             ui -> CalculationResult -> setText(QString::number(result,'g',10) + ui -> comboBox_ResultValue -> currentText());
         }
         else
